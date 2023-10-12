@@ -1,0 +1,13 @@
+CREATE TABLE Currency (
+code TEXT NOT NULL PRIMARY KEY,
+value REAL
+);
+
+insertCurrency:
+INSERT OR REPLACE INTO Currency(code, value) VALUES(?, ?);
+
+selectOne:
+SELECT * FROM Currency WHERE (code = ?);
+
+selectAll:
+SELECT * FROM Currency;
