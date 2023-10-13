@@ -2,13 +2,14 @@ package com.github.ariefannur.currencyapp.domain.utils
 
 import kotlin.native.concurrent.ThreadLocal
 import kotlin.time.Duration
+import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.seconds
 import kotlin.time.TimeSource
 
 @ThreadLocal
 object Throttling {
     private val TIMER = 3.seconds
-    private var lastCallApi: Duration = 0.seconds
+    private var lastCallApi: Duration = 0.milliseconds
 
     fun save() { lastCallApi = currentTime() }
 
