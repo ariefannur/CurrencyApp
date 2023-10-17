@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Currency App</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="input_nominal">Input Nominal</string>
+    <string name="choose_currency">Choose Currency</string>
+</resources>

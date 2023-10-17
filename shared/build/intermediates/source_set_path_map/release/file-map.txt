@@ -1,9 +1,0 @@
-com.github.ariefannur.currencyapp.shared-pngs-0 /Users/ariefmaffrudin/Work/CurrencyApp/shared/build/generated/res/pngs/release
-com.github.ariefannur.currencyapp.shared-resValues-1 /Users/ariefmaffrudin/Work/CurrencyApp/shared/build/generated/res/resValues/release
-com.github.ariefannur.currencyapp.shared-mergeReleaseResources-2 /Users/ariefmaffrudin/Work/CurrencyApp/shared/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
-com.github.ariefannur.currencyapp.shared-mergeReleaseResources-3 /Users/ariefmaffrudin/Work/CurrencyApp/shared/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
-com.github.ariefannur.currencyapp.shared-merged_res-4 /Users/ariefmaffrudin/Work/CurrencyApp/shared/build/intermediates/merged_res/release
-com.github.ariefannur.currencyapp.shared-androidMain-5 /Users/ariefmaffrudin/Work/CurrencyApp/shared/src/androidMain/res
-com.github.ariefannur.currencyapp.shared-androidRelease-6 /Users/ariefmaffrudin/Work/CurrencyApp/shared/src/androidRelease/res
-com.github.ariefannur.currencyapp.shared-main-7 /Users/ariefmaffrudin/Work/CurrencyApp/shared/src/main/res
-com.github.ariefannur.currencyapp.shared-release-8 /Users/ariefmaffrudin/Work/CurrencyApp/shared/src/release/res

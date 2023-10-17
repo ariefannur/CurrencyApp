@@ -15,6 +15,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
@@ -43,8 +44,10 @@ dependencies {
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
+    implementation(libs.compose.runtime)
     implementation(libs.androidx.activity.compose)
     implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
     implementation(libs.koin.core)
     debugImplementation(libs.compose.ui.tooling)
 }

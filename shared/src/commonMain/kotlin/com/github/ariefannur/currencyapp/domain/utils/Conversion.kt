@@ -5,8 +5,9 @@ import com.github.ariefannur.currencyapp.model.Currency
 
 
 fun HashMap<String, Double>.toCurrency(value: Double, code: String): List<Currency> {
-    val baseCurrencyOnUSD: Double = this[code] ?: 0.0
+    val baseCurrencyOnUSD: Double = this.getValue(code) ?: 0.0
     return this.map {
-        Currency(it.key, value / baseCurrencyOnUSD)
+        Currency(it.key, value * it.value * baseCurrencyOnUSD)
     }
 }
+

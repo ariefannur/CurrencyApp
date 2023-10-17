@@ -44,6 +44,8 @@ kotlin {
             dependencies {
                 implementation(libs.ktor.client.android)
                 implementation(libs.sqldelight.android)
+                implementation(libs.koin.android)
+                implementation(libs.koin.androidx.compose)
             }
         }
         val iosX64Main by getting
