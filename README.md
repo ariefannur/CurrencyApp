@@ -25,5 +25,8 @@ currency app kmm project
 - Compose ui testing
 
 ## Screenshot
+<img src='screenshot/photo_2023-10-17_23-35-55.jpg' width='200'><img src='screenshot/photo_2023-10-17_23-30-25.jpg' width='200'><img src='screenshot/photo_2023-10-17_23-30-28.jpg' width='200'><img src='screenshot/photo_2023-10-17_23-30-34.jpg' width='200'>
+<img src='screenshot/photo_2023-10-17_23-30-34.jpg' width='200'>
+<img src='screenshot/photo_2023-10-17_23-30-21.jpg' width='400'>
 
 
