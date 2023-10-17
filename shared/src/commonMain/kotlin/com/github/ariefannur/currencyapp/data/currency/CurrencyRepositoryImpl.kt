@@ -14,13 +14,11 @@ class CurrencyRepositoryImpl(
     override suspend fun requestCurrency(): Flow<HashMap<String, Double>> = flow {
         with(local.getCurrency()) {
             if (!this.isNullOrEmpty()) {
-                println("AF: from local $this")
                 emit(this)
             }
             // Throttling flag
-            if (Throttling.isAllowToCallApi()) {
+            if (Throttling.isAllowToCallApi() || this.isNullOrEmpty()) {
                 Throttling.save()
-                println("AF: from Remote ")
                 val remote = remote.requestCurrency()
                 if (remote.isNotEmpty()) {
                     kotlin.runCatching { local.saveCurrency(remote) }

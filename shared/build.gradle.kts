@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.sqlDelight)
+    alias(libs.plugins.mockKmp)
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -15,6 +16,10 @@ kotlin {
                 jvmTarget = "1.8"
             }
         }
+    }
+
+    mockmp {
+        usesHelper = true
     }
     
     listOf(
@@ -58,6 +63,7 @@ kotlin {
             dependencies {
                 implementation(libs.ktor.client.darwin)
                 implementation(libs.sqldelight.native)
+                implementation(libs.koin.core)
             }
         }
 

@@ -11,6 +11,8 @@ kotlinx-serialization = "1.6.0"
 koin = "3.2.0"
 koin-androidx = "3.5.0"
 sqlDelight = "1.5.5"
+mockKmp = "1.15.0"
+coroutine = "1.7.3"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -36,6 +38,7 @@ koin-test = { module ="io.insert-koin:koin-test", version.ref = "koin"}
 sqldelight-runtime = { module = "com.squareup.sqldelight:runtime" , version.ref ="sqlDelight"}
 sqldelight-android = { module = "com.squareup.sqldelight:android-driver" , version.ref ="sqlDelight"}
 sqldelight-native = { module = "com.squareup.sqldelight:native-driver" , version.ref ="sqlDelight"}
+coroutine-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test" , version.ref ="coroutine"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -45,3 +48,4 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
 sqlDelight = { id = "com.squareup.sqldelight", version.ref = "sqlDelight"}
+mockKmp = { id = "org.kodein.mock.mockmp", version.ref = "mockKmp"}

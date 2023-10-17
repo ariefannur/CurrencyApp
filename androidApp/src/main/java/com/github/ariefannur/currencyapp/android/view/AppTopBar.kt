@@ -22,7 +22,7 @@ import com.github.ariefannur.currencyapp.android.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppTopBar() {
+fun AppTopBar(isDarkMode: Boolean = false, onChangeMode: (Boolean) -> Unit = {}) {
     var menuExpanded by rememberSaveable { mutableStateOf(false) }
     TopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
@@ -38,7 +38,7 @@ fun AppTopBar() {
             }
         },
         actions = {
-            IconButton(onClick = { /* do something */ }) {
+            IconButton(onClick = { menuExpanded = !menuExpanded }) {
                 Icon(
                     imageVector = Icons.Filled.MoreVert,
                     contentDescription = "Localized description"
@@ -46,9 +46,10 @@ fun AppTopBar() {
             }
             DropdownMenu(expanded = menuExpanded, onDismissRequest = { menuExpanded = !menuExpanded }) {
                 DropdownMenuItem(text = {
-                   Text(text = stringResource(R.string.dark_mode))
+                   Text(text = stringResource(if (isDarkMode) R.string.light_mode else R.string.dark_mode))
                 }, onClick = {
-
+                    menuExpanded = !menuExpanded
+                    onChangeMode.invoke(!isDarkMode)
                 })
             }
         },

@@ -11,6 +11,8 @@ class ConvertCurrency(
     private val repository: CurrencyRepository
 ): UseCase<List<Currency>, Currency>() {
     override suspend fun run(params: Currency): Flow<List<Currency>> = flow {
+        if (params.code.length > 3) throw Exception("Invalid params")
+        if (params.rate == 0.0) throw Exception("Invalid params")
         repository.requestCurrency().collect {
             emit(it.toCurrency(params.rate, params.code))
         }

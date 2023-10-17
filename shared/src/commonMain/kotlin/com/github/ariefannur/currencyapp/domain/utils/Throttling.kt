@@ -1,22 +1,22 @@
 package com.github.ariefannur.currencyapp.domain.utils
 
+import io.ktor.util.date.getTimeMillis
 import kotlin.native.concurrent.ThreadLocal
-import kotlin.time.Duration
-import kotlin.time.Duration.Companion.milliseconds
-import kotlin.time.Duration.Companion.seconds
-import kotlin.time.TimeSource
 
 @ThreadLocal
 object Throttling {
-    private val TIMER = 3.seconds
-    private var lastCallApi: Duration = 0.milliseconds
+    private const val TIMER = 30000
+    private var lastCallApi: Long = 0L
 
     fun save() { lastCallApi = currentTime() }
 
-    private fun currentTime(): Duration = TimeSource.Monotonic.markNow().elapsedNow()
+    @OptIn(ExperimentalStdlibApi::class)
+    @VisibleForTesting
+    fun reset() { lastCallApi = 0L }
+
+    private fun currentTime(): Long = getTimeMillis()
 
     fun isAllowToCallApi(): Boolean {
-        println("AF: last -> $lastCallApi current -> ${currentTime()}")
-        return lastCallApi + TIMER < currentTime() || lastCallApi == 0.seconds
+        return lastCallApi + TIMER < currentTime() || lastCallApi == 0L
     }
 }

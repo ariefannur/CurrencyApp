@@ -54,14 +54,17 @@ fun BottomSheetView(
     ) {
 
         OutlinedTextField(
-            modifier = Modifier.padding(horizontal = 16.dp).fillMaxWidth(),
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .fillMaxWidth(),
             value = texSearch,
             label = {
-                Text("Search")
+                Text(stringResource(id = R.string.search))
             },
             onValueChange = { text ->
                 texSearch = text
-                mutableListData = mutableListData.filter { it.contains(text.text, ignoreCase = true) }
+                mutableListData = if (text.text.isEmpty())
+                    listData else mutableListData.filter { it.contains(text.text, ignoreCase = true) }
             },
             trailingIcon = {
                 Icon(imageVector = Icons.Filled.Clear, contentDescription = "", modifier = Modifier.clickable {

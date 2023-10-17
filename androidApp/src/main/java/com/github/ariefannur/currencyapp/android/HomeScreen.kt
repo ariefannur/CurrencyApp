@@ -6,10 +6,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -22,6 +25,7 @@ import com.github.ariefannur.currencyapp.android.view.BottomSheetView
 import com.github.ariefannur.currencyapp.android.view.CurrencyView
 import com.github.ariefannur.currencyapp.android.view.GridConversionView
 import com.github.ariefannur.currencyapp.android.view.NominalView
+import kotlinx.coroutines.launch
 import org.koin.androidx.compose.getViewModel
 
 @Composable
@@ -32,13 +36,21 @@ fun HomeScreen() {
 
     val gridData by viewModel.gridState.collectAsStateWithLifecycle()
     val currencyCode by viewModel.currencyCodeState.collectAsStateWithLifecycle()
-    val inputNominal by viewModel.inputCurrencyState.collectAsStateWithLifecycle()
     val listCurrencyCode by viewModel.listCurrencyCode.collectAsStateWithLifecycle()
+    var isDarkMode by remember { mutableStateOf(false) }
+    val internetState by viewModel.internetState.collectAsStateWithLifecycle()
+    val scope = rememberCoroutineScope()
+    val snackBarHostState = remember { SnackbarHostState() }
 
-    AppTheme {
+    AppTheme(useDarkTheme = isDarkMode) {
         Scaffold(
+            snackbarHost = {
+                SnackbarHost(hostState = snackBarHostState)
+            },
             topBar = {
-                AppTopBar()
+                AppTopBar(isDarkMode, onChangeMode = {
+                    isDarkMode = it
+                })
             }
         ) { innerPadding ->
             Column(
@@ -91,6 +103,13 @@ fun HomeScreen() {
                     viewModel.inputCurrencyCode.value = selected
                     viewModel.convert()
                 })
+            }
+
+            if (internetState) {
+                scope.launch {
+                    snackBarHostState.showSnackbar("Check your internet connection")
+                    viewModel.internetConnection.value = false
+                }
             }
         }
     }

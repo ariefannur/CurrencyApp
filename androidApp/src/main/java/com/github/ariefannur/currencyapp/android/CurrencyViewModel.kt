@@ -24,7 +24,10 @@ class CurrencyViewModel(
     val currencyCodeState: StateFlow<String> = inputCurrencyCode.asStateFlow()
 
     val inputCurrencyNominal = MutableStateFlow(1.0)
-    val inputCurrencyState: StateFlow<Double> = inputCurrencyNominal.asStateFlow()
+
+    val internetConnection = MutableStateFlow(false)
+    val internetState : StateFlow<Boolean> = internetConnection.asStateFlow()
+
 
     fun convert() {
         convertCurrency(Currency(inputCurrencyCode.value, inputCurrencyNominal.value)) {
@@ -32,10 +35,11 @@ class CurrencyViewModel(
                 is DataState.Loading -> {}
                 is DataState.Success -> {
                    _listData.value = it.result
-                    Log.d("AF", "view model ${it.result}")
                    _listCurrencyCode.value = it.result.map { it.code }
                 }
-                else -> {}
+                is DataState.Failure -> {
+                    if (it.errorCode == 404) internetConnection.value = true
+                }
             }
         }
     }
