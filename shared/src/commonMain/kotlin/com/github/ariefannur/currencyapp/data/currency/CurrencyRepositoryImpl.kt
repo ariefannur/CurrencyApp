@@ -4,6 +4,7 @@ import com.github.ariefannur.currencyapp.domain.abstract.CurrencyLocalDataSource
 import com.github.ariefannur.currencyapp.domain.abstract.CurrencyRemoteDataSource
 import com.github.ariefannur.currencyapp.domain.abstract.CurrencyRepository
 import com.github.ariefannur.currencyapp.domain.utils.Throttling
+import com.rickclephas.kmp.nativecoroutines.NativeCoroutines
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
@@ -11,6 +12,7 @@ class CurrencyRepositoryImpl(
     private val remote: CurrencyRemoteDataSource,
     private val local: CurrencyLocalDataSource
 ): CurrencyRepository {
+    @NativeCoroutines
     override suspend fun requestCurrency(): Flow<HashMap<String, Double>> = flow {
         with(local.getCurrency()) {
             if (!this.isNullOrEmpty()) {

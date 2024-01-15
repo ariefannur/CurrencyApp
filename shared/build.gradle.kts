@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.sqlDelight)
     alias(libs.plugins.mockKmp)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.nativeCoroutine)
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -20,6 +22,10 @@ kotlin {
 
     mockmp {
         usesHelper = true
+    }
+
+    sourceSets.all {
+        languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
     }
     
     listOf(

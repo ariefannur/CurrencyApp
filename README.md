@@ -20,13 +20,16 @@ currency app kmm project
 - Throtlling checker for limit request to BE
 
 ## Todo Items
-- Dbugging shared module on iOS
-- Explore Compose multiplatoform form shared presentation
 - Compose ui testing
 
 ## Screenshot
+Android
 <img src='screenshot/photo_2023-10-17_23-35-55.jpg' width='200'><img src='screenshot/photo_2023-10-17_23-30-25.jpg' width='200'><img src='screenshot/photo_2023-10-17_23-30-28.jpg' width='200'><img src='screenshot/photo_2023-10-17_23-30-34.jpg' width='200'>
 <img src='screenshot/photo_2023-10-17_23-30-34.jpg' width='200'>
 <img src='screenshot/photo_2023-10-17_23-30-21.jpg' width='400'>
+
+iOS
+<img src='screenshot/Simulator Screen Shot - iPod touch.png' width='200'>
+
 
 

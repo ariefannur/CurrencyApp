@@ -13,6 +13,8 @@ koin-androidx = "3.5.0"
 sqlDelight = "1.5.5"
 mockKmp = "1.15.0"
 coroutine = "1.7.3"
+nativeCoroutine = "1.0.0-ALPHA-18"
+ksp = "1.9.10-1.0.13"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -49,3 +51,5 @@ kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = 
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
 sqlDelight = { id = "com.squareup.sqldelight", version.ref = "sqlDelight"}
 mockKmp = { id = "org.kodein.mock.mockmp", version.ref = "mockKmp"}
+nativeCoroutine = {id = "com.rickclephas.kmp.nativecoroutines", version.ref= "nativeCoroutine"}
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
